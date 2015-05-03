@@ -1,0 +1,4 @@
+GET A
+SET A 10
+GET A
+END
