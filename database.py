@@ -166,7 +166,10 @@ class QueryExecutor:
                 if val is not None:
                     storage[key] = val
                 else:
-                    del storage[key]
+                    try:
+                        del storage[key]
+                    except KeyError:
+                        pass
 
         self.db_storage.free(self.client_id)
 

@@ -120,6 +120,10 @@ class TestStringMethods(unittest.TestCase):
         result = self.db.execute('GET A')
         self.assertEqual('NULL', result)
 
+        self.db.execute('BEGIN')
+        self.db.execute('UNSET A')
+        self.db.execute('COMMIT')
+
     def test_transactions_count_op(self):
         self.db.execute('BEGIN')
 
