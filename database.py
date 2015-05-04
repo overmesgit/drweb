@@ -41,7 +41,10 @@ class DataBaseStorage:
             raise Exception('storage lock')
 
     def block(self, client_id):
-        self._block = client_id
+        if not self._block:
+            self._block = client_id
+        else:
+            raise Exception('storage lock')
 
     def free(self, client_id):
         if self._block == client_id:
