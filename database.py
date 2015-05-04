@@ -37,6 +37,8 @@ class DataBaseStorage:
     def get_storage(self, client_id):
         if not self._block or self._block == client_id:
             return self._storage
+        else:
+            raise Exception('storage lock')
 
     def block(self, client_id):
         self._block = client_id
